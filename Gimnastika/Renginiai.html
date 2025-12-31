@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renginiai | Meninė gimnastika Raseiniuose</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #fff0f6;
+      padding-top: 58px;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(#ffffff, #f5f5f5);
+      padding: 14px 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    nav a {
+      font-size: 1.5em;
+      color: #111;
+      text-decoration: none;
+      margin: 0 20px;
+      transition: color .25s ease, transform .2s ease;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    nav:hover a { opacity: .8; }
+
+    nav a:hover {
+      opacity: 1;
+      color: #ff006f;
+      transform: translateY(-1px);
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      min-width: 200px;
+      border-radius: 10px;
+      padding: 10px 0;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      text-align: left;
+      font-size: 1em;
+      color: #111;
+    }
+
+    .dropdown-content a:hover {
+      background: #ffedf6;
+      color: #ff006f;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ANIMUOTAS PAVADINIMAS */
+    .group-title {
+      text-align: center;
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      margin: 40px 0 30px;
+      color: #111;
+    }
+
+    .group-title span {
+      display: inline-block;
+      animation: glowGroup 2.8s infinite;
+      animation-delay: calc(var(--i) * 0.3s);
+    }
+
+    @keyframes glowGroup {
+      0%   { color: #111; transform: scale(1); }
+      50%  { color: #ff006f; transform: scale(1.1); }
+      100% { color: #111; transform: scale(1); }
+    }
+
+    /* KORTELĖS */
+    .events-wrap {
+      padding: 60px 40px;
+      background: transparent; /* SVARBIAUSIA VIETA */
+    }
+
+    .events-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .event-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      color: inherit;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .event-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .event-card:hover img {
+      transform: scale(1.04);
+    }
+
+    /* TAMSĖJIMAS */
+    .event-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+      opacity: 0.6;
+      transition: opacity .35s ease;
+    }
+
+    .event-card:hover::before {
+      opacity: 1;
+    }
+
+    /* PAVADINIMAS */
+    .event-title {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      width: calc(100% - 36px);
+      text-align: center;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px;
+      background: rgba(0,0,0,0.55);
+      transition: all .35s ease;
+    }
+
+    .event-card:hover .event-title {
+      bottom: 50%;
+      transform: translate(-50%, 50%);
+      background: rgba(0,0,0,0.35);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .events-grid { grid-template-columns: 1fr; }
+      .group-title { font-size: 44px; }
+      nav a { font-size: 1.2em; margin: 0 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
+
+  <div class="dropdown">
+    <a href="Grupes.html">Grupės</a>
+    <div class="dropdown-content">
+      <a href="MegejuGrupe.html">7-12 metų grupė</a>
+      <a href="MazyliuGrupe.html">4-6 metų grupė</a>
+      <a href="Pazengusiuju.html">Pažengusiųjų grupė</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="Renginiai.html"><b>Renginiai</b></a>
+    <div class="dropdown-content">
+      <a href="Helovinas.html">Helovinas</a>
+      <a href="Kaledos.html">Kalėdos</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="Stovyklos.html">Stovyklos</a>
+    <div class="dropdown-content">
+      <a href="2025stovykla.html">2025</a>
+    </div>
+  </div>
+
+  <a href="Kontaktai.html">Kontaktai</a>
+</nav>
+
+<h2 class="group-title">
+  <span style="--i:1">R</span>
+  <span style="--i:2">E</span>
+  <span style="--i:3">N</span>
+  <span style="--i:4">G</span>
+  <span style="--i:5">I</span>
+  <span style="--i:6">N</span>
+  <span style="--i:7">I</span>
+  <span style="--i:8">A</span>
+  <span style="--i:9">I</span>
+</h2>
+
+<section class="events-wrap">
+  <div class="events-grid">
+
+    <a class="event-card" href="Helovinas.html">
+      <img src="helovinas2025.JPG" alt="Helovinas">
+      <div class="event-title">Helovinas 2025</div>
+    </a>
+
+    <a class="event-card" href="Kaledos.html">
+      <img src="kaledos2025.JPG" alt="Kalėdos">
+      <div class="event-title">Kalėdos 2025</div>
+    </a>
+
+  </div>
+</section>
+
+</body>
+</html>
