@@ -1,135 +1,176 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="utf-8">
-    <title>7–12 metų grupė | Meninė gimnastika Raseiniuose</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7–12 metų grupė | Meninė gimnastika Raseiniuose</title>
 
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif !important;
-        }
+  <style>
+    * { font-family: Arial, Helvetica, sans-serif !important; box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            padding-top: 70px;
-            background: #fff0f6;
-        }
+    body {
+      margin: 0;
+      padding-top: 70px;
+      background: #fff0f6;
+      overflow-x: hidden;
+    }
 
-        nav {
-            text-align: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(#ffffff, #f5f5f5);
-            padding: 14px 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.12);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-        }
+    nav {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(#ffffff, #f5f5f5);
+      padding: 14px 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    }
 
-        nav a {
-            font-size: 1.3em;
-            color: #111;
-            text-decoration: none;
-            margin: 0 20px;
-            transition: .25s;
-        }
+    nav a {
+      font-size: 1.3em;
+      color: #111;
+      text-decoration: none;
+      margin: 0 20px;
+      transition: color .25s ease, transform .2s ease, opacity .25s ease;
+      display: inline-block;
+    }
 
-        nav a:hover {
-            color: #ff006f;
-        }
+    nav:hover a { opacity: .85; }
+    nav a:hover { opacity: 1; color: #ff006f; transform: translateY(-1px); }
 
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+    .dropdown { display: inline-block; position: relative; }
 
-        h1 {
-            text-align: center;
-            color: #ff006f;
-            margin-bottom: 30px;
-        }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      min-width: 200px;
+      border-radius: 10px;
+      padding: 10px 0;
+      text-align: left;
+    }
 
-        .group-img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
+    .dropdown-content a {
+      display: block;
+      margin: 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #111;
+      opacity: 1;
+      transform: none;
+    }
 
-        p {
-            font-size: 18px;
-            line-height: 1.7;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    .dropdown-content a:hover { background: #ffedf6; color: #ff006f; }
+    .dropdown:hover .dropdown-content { display: block; }
 
-        ul {
-            font-size: 18px;
-            color: #333;
-            line-height: 1.7;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
 
-        .back {
-            display: inline-block;
-            margin-top: 30px;
-            text-decoration: none;
-            color: #fff;
-            background: #ff006f;
-            padding: 12px 28px;
-            border-radius: 25px;
-            transition: .3s;
-        }
+    h1 {
+      text-align: center;
+      color: #ff006f;
+      margin-bottom: 30px;
+    }
 
-        .back:hover {
-            background: #e60063;
-        }
-    </style>
+    .group-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    p { font-size: 18px; line-height: 1.7; color: #333; margin-bottom: 20px; }
+    ul { font-size: 18px; color: #333; line-height: 1.7; }
+
+    .back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #fff;
+      background: #ff006f;
+      padding: 12px 28px;
+      border-radius: 25px;
+      transition: .3s;
+    }
+
+    .back:hover { background: #e60063; }
+
+    @media (max-width: 900px) {
+      nav a { font-size: 1.15em; margin: 0 12px; }
+      .container { margin: 28px 16px; padding: 28px; }
+    }
+  </style>
 </head>
 
 <body>
 
 <nav>
-    <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
+  <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
+
+  <div class="dropdown">
     <a href="Grupes.html">Grupės</a>
+    <div class="dropdown-content">
+      <a href="MegejuGrupe.html">7-12 metų grupė</a>
+      <a href="MazyliuGrupe.html">4-6 metų grupė</a>
+      <a href="Pazengusiuju.html">Pažengusiųjų grupė</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
     <a href="Renginiai.html">Renginiai</a>
-    <a href="Stovyklos.html">Stovyklos</a>
-    <a href="Kontaktai.html">Kontaktai</a>
+    <div class="dropdown-content">
+      <a href="Helovinas.html">Helovinas</a>
+      <a href="Kaledos.html">Kalėdos</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="Renginiai.html#stovyklos">Stovyklos</a>
+    <div class="dropdown-content">
+      <a href="Renginiai.html#stovyklos">2025</a>
+    </div>
+  </div>
+
+  <a href="Kontaktai.html">Kontaktai</a>
 </nav>
 
 <div class="container">
-    <h1>7–12 metų grupė</h1>
+  <h1>7–12 metų grupė</h1>
 
-    <img src="MegejuFoto.jpg" alt="7–12 metų grupė" class="group-img">
+  <img src="MegejuFoto.jpg" alt="7–12 metų grupė" class="group-img">
 
-    <p>
-        Šioje grupėje treniruojasi 7–12 metų mergaitės, norinčios susipažinti su menine gimnastika
-        ir ugdyti savo fizinius bei meninius gebėjimus.
-    </p>
+  <p>
+    Šioje grupėje treniruojasi 7–12 metų mergaitės, norinčios susipažinti su menine gimnastika
+    ir ugdyti savo fizinius bei meninius gebėjimus.
+  </p>
 
-    <p>
-        Treniruotėse laviname:
-    </p>
+  <p>Treniruotėse laviname:</p>
 
-    <ul>
-        <li>Lankstumą ir jėgą</li>
-        <li>Šoklumą ir koordinaciją</li>
-        <li>Taisyklingą laikyseną</li>
-        <li>Darbą su gimnastikos įrankiais</li>
-        <li>Artistiškumą ir pasitikėjimą savimi</li>
-    </ul>
+  <ul>
+    <li>Lankstumą ir jėgą</li>
+    <li>Šoklumą ir koordinaciją</li>
+    <li>Taisyklingą laikyseną</li>
+    <li>Darbą su gimnastikos įrankiais</li>
+    <li>Artistiškumą ir pasitikėjimą savimi</li>
+  </ul>
 
-    <p>
-        Užsiėmimai vyksta draugiškoje, motyvuojančioje aplinkoje, vadovaujant patyrusiai trenerei.
-        Grupė puikiai tinka tiek pradedančiosioms, tiek jau turinčioms patirties.
-    </p>
+  <p>
+    Užsiėmimai vyksta draugiškoje, motyvuojančioje aplinkoje, vadovaujant patyrusiai trenerei.
+  </p>
 
-    <a href="Grupes.html" class="back">← Grįžti į grupes</a>
+  <a href="Grupes.html" class="back">← Grįžti į grupes</a>
 </div>
 
 </body>

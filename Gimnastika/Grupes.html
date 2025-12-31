@@ -1,425 +1,210 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="lt">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grupės | Meninė gimnastika Raseiniuose</title>
 
-    	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <style>
+    * { font-family: Arial, Helvetica, sans-serif !important; box-sizing: border-box; }
 
-    <meta charset="utf-8">
-    <title>Meninė Gimnastika Raseiniuose</title>
-    <style>
+    body {
+      margin: 0;
+      background: #fff0f6;
+      padding-top: 58px;
+      overflow-x: hidden;
+    }
 
-	* {
-   		font-family: Arial, Helvetica, sans-serif !important;
-	}
-        body {
-            background: #ffffff;
-            margin: 0;
-            font-family: sans-serif;
-            padding-top: 58px;
-            overflow-x: hidden;
-        }
+    nav {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(#ffffff, #f5f5f5);
+      padding: 14px 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
 
-        nav {
-            text-align: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(#ffffff, #f5f5f5);
-            padding: 14px 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-            box-shadow:
-                0 8px 18px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.7);
-        }
+    nav a {
+      font-size: 1.5em;
+      color: #111;
+      text-decoration: none;
+      margin: 0 20px;
+      transition: color .25s ease, transform .2s ease, opacity .25s ease;
+      text-shadow: 0 1px 0 #fff;
+      display: inline-block;
+    }
 
-        nav a {
-            font-size: 1.5em;
-            color: #111;
-            text-decoration: none;
-            margin: 0 20px;
-            font-family: Arial, Helvetica, sans-serif;
-            position: relative;
-            transition: color .25s ease, transform .2s ease;
-            text-shadow: 0 1px 0 #fff;
-        }
+    nav:hover a { opacity: .85; }
+    nav a:hover { opacity: 1; color: #ff006f; transform: translateY(-1px); }
 
-        nav:hover a {
-            opacity: .8;
-        }
+    .dropdown { display: inline-block; position: relative; }
 
-        nav a:hover {
-            opacity: 1;
-            color: #ff006f;
-            transform: translateY(-1px);
-        }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      min-width: 200px;
+      border-radius: 10px;
+      padding: 10px 0;
+      text-align: left;
+    }
 
-        .header-title {
-            background-color: #fff0f6;
-            padding: 28px 0;
-            margin: 0;
-            position: relative;
-            margin-top: -4px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
+    .dropdown-content a {
+      display: block;
+      margin: 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #111;
+      opacity: 1;
+      transform: none;
+      text-shadow: none;
+    }
 
-        .animated-title {
-            text-align: center;
-            font-size: 70px;
-            font-family: "Playfair Display", serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #ff006f;
-            margin: 0;
-            letter-spacing: 2px;
-            text-shadow:
-                1px 1px 0 #222,
-                2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+    .dropdown-content a:hover { background: #ffedf6; color: #ff006f; }
+    .dropdown:hover .dropdown-content { display: block; }
 
-        .animated-title span {
-            display: inline-block;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
+    .group-title {
+      text-align: center;
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      margin: 40px 0 20px 0;
+      color: #111;
+    }
 
-        @keyframes glow {
-            0% {
-                color: #ff006f;
-                transform: scale(1);
-            }
+    .group-title span {
+      display: inline-block;
+      animation: glowGroup 2.8s infinite;
+      animation-delay: calc(var(--i) * 0.30s);
+    }
 
-            50% {
-                color: #000;
-                transform: scale(1.1);
-            }
+    @keyframes glowGroup {
+      0%   { color: #111; transform: scale(1); }
+      50%  { color: #ff006f; transform: scale(1.1); }
+      100% { color: #111; transform: scale(1); }
+    }
 
-            100% {
-                color: #ff006f;
-                transform: scale(1);
-            }
-        }
+    .sections {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px;
+      background: transparent;
+    }
 
-        .dropdown {
-            display: inline-block;
-            position: relative;
-        }
+    .section-link { text-decoration: none; color: inherit; flex: 1 1 30%; }
+    .section {
+      flex: 1 1 30%;
+      margin: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+      background-color: #fff;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            min-width: 200px;
-            border-radius: 10px;
-            padding: 10px 0;
-        }
+    .section:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.03);
+    }
 
-        .dropdown-content a {
-            display: block;
-            margin: 0;
-            padding: 10px 20px;
-            text-align: left;
-            font-size: 1em;
-            color: #111;
-            opacity: 1;
-        }
+    .section img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: #ddd;
+      display: block;
+    }
 
-        .dropdown-content a:hover {
-            background: #ffedf6;
-            color: #ff006f;
-        }
+    .section-text { padding: 20px; text-align: center; }
+    .section-text h2 { color: #ff006f; margin-bottom: 10px; }
+    .section-text p { color: #333; font-size: 18px; }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        img {
-            width: 100%;
-            margin: 0;
-            display: block;
-        }
-
-        .animated-title span {
-            animation: glow 2.8s infinite;
-            animation-delay: calc(var(--i) * 0.100s);
-        }
-
-        .group-title span {
-            animation: glowGroup 2.8s infinite;
-            animation-delay: calc(var(--i) * 0.30s);
-        }
-
-        .group-title {
-            text-align: center;
-            font-size: 70px;
-            font-weight: 900;
-            color: #111;
-            font-family: "Montserrat", sans-serif;
-            letter-spacing: 6px;
-            margin: 40px 0 20px 0;
-        }
-
-        .group-title span {
-            display: inline-block;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-
-        @keyframes glowGroup {
-            0% {
-                color: #111;
-                transform: scale(1);
-            }
-
-            50% {
-                color: #ff006f;
-                transform: scale(1.1);
-            }
-
-            100% {
-                color: #111;
-                transform: scale(1);
-            }
-        }
-
-        .sections {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 0;
-            padding: 40px;
-            background-color: #f9f9f9;
-        }
-
-        .section {
-            flex: 1 1 30%;
-            margin: 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
-            background-color: #fff;
-        }
-
-        .section:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            filter: brightness(1.03);
-        }
-
-        .section img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background: #ddd;
-            margin: 0;
-            display: block;
-        }
-
-        .section-text {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .section-text h2 {
-            color: #ff006f;
-            margin-bottom: 10px;
-        }
-
-        .section-text p {
-            color: #333;
-            font-size: 18px;
-        }
-
-        .section-link {
-            text-decoration: none;
-            color: inherit;
-            flex: 1 1 30%;
-        }
-
-        .section-link .section {
-            cursor: pointer;
-        }
-
-        .footer {
-            background: #000;
-            color: #fff;
-            padding: 60px 24px 40px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            gap: 48px;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .footer h3 {
-            font-size: 22px;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-            margin: 0 0 18px;
-        }
-
-        .footer p {
-            margin: 8px 0;
-            line-height: 1.6;
-            color: #d9d9d9;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 28px auto 0;
-            padding-top: 18px;
-            border-top: 1px solid #1c1c1c;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            color: #888;
-            font-size: 14px;
-        }
-
-        @media (max-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer {
-                padding: 44px 18px;
-            }
-        }
-    </style>
+    @media (max-width: 900px) {
+      nav a { font-size: 1.15em; margin: 0 12px; }
+      .group-title { font-size: 44px; letter-spacing: 4px; }
+      .sections { padding: 22px; }
+      .section img { height: 260px; }
+    }
+  </style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="Registracija.html"><b>Registracija</b></a>
+<nav>
+  <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
 
-        <div class="dropdown">
-            <a href="Grupes.html">Grupės</a>
-            <div class="dropdown-content">
-                <a href="MegejuGrupe.html">7-12 metų grupė</a>
-                <a href="MazyliuGrupe.html">4-6 metų grupė</a>
-                <a href="Pazengusiuju.html">Pažengusiųjų grupė</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="Renginiai.html">Renginiai</a>
-            <div class="dropdown-content">
-                <a href="Helovinas.html">Helovinas</a>
-                <a href="Kalėdos.html">Kalėdos</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a href="Stovyklos.html">Stovyklos</a>
-            <div class="dropdown-content">
-                <a href="2025stovykla.html">2025</a>
-            </div>
-        </div>
-
-        <a href="Kontaktai.html">Kontaktai</a>
-    </nav>
-
-    <h2 class="group-title">
-        <span style="--i:1">G</span>
-        <span style="--i:2">R</span>
-        <span style="--i:3">U</span>
-        <span style="--i:4">P</span>
-        <span style="--i:5">Ė</span>
-        <span style="--i:6">S</span>
-        <span style="--i:7">:</span>
-    </h2>
-
-    <div class="sections">
-        <a href="MegejuGrupe.html" class="section-link">
-            <div class="section">
-                <img src="MegejuFoto.jpg" alt="7-12 metų grupė">
-                <div class="section-text">
-                    <h2>7-12 metų grupė</h2>
-                    <p>Treniruotėse ugdome mergaičių lankstumą, jėgą, šoklumą, koordinaciją, taisyklingą laikyseną,
-                        įgūdžius dirbant su gimnastikos įrankiais, artistiškumą bei pasitikėjimą savimi.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="MazyliuGrupe.html" class="section-link">
-            <div class="section">
-                <img src="MazyliuFoto.jpg" alt="4-6 metų grupė">
-                <div class="section-text">
-                    <h2>4-6 metų grupė</h2>
-                    <p>Supažindiname mergaites su menine gimnastika. Ugdome lankstumą, discipliną, jėgą, šoklumą,
-                        koordinaciją, taisyklingą laikyseną bei savarankiškumą.</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="Pazengusiuju.html" class="section-link">
-            <div class="section">
-                <img src="PazengusiuFoto.jpg" alt="Pažengusiųjų grupė">
-                <div class="section-text">
-                    <h2>Pažengusiųjų grupė</h2>
-                    <p>Šioje grupėje gali treniruotis mergaitės, turinčios visus fizinius duomenis, reikalingus meninei
-                        gimnastikai. Treniruočių sąlygos aptariamos individualiai su trenere.</p>
-                </div>
-            </div>
-        </a>
+  <div class="dropdown">
+    <a href="Grupes.html"><b>Grupės</b></a>
+    <div class="dropdown-content">
+      <a href="MegejuGrupe.html">7-12 metų grupė</a>
+      <a href="MazyliuGrupe.html">4-6 metų grupė</a>
+      <a href="Pazengusiuju.html">Pažengusiųjų grupė</a>
     </div>
+  </div>
 
-    <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <p>Laukiame visų, norinčių patirti meninės gimnastikos džiaugsmą ir augti kartu su nuostabiausia sporto
-                    šaka!</p>
-            </div>
+  <div class="dropdown">
+    <a href="Renginiai.html">Renginiai</a>
+    <div class="dropdown-content">
+      <a href="Helovinas.html">Helovinas</a>
+      <a href="Kaledos.html">Kalėdos</a>
+    </div>
+  </div>
 
-            <div>
-                <h3>Adresas</h3>
-                <p>Kalnų gatvė 15A, Raseiniai</p>
-                <p>Raseinių mokyklos-daugiafunkcinio centro "Spindulys" sporto salėje</p>
-            </div>
+  <div class="dropdown">
+    <a href="Renginiai.html#stovyklos">Stovyklos</a>
+    <div class="dropdown-content">
+      <a href="Renginiai.html#stovyklos">2025</a>
+    </div>
+  </div>
 
-            <div>
-                <h3>Kontaktai</h3>
-                <p class="muted">+370 000 00000</p>
-                <div class="social">
-                    <a href="https://www.facebook.com/groups/1255603382382791/" aria-label="Facebook">FB</a>
-                    <p>Gimnastika Raseiniuose</p>
-                </div>
-            </div>
+  <a href="Kontaktai.html">Kontaktai</a>
+</nav>
 
-            <div>
-                <h3>Darbo laikas</h3>
-                <p>pirmadieniais - ketvirtadieniais</p>
-            </div>
-        </div>
+<h2 class="group-title">
+  <span style="--i:1">G</span><span style="--i:2">R</span><span style="--i:3">U</span><span style="--i:4">P</span><span style="--i:5">Ė</span><span style="--i:6">S</span><span style="--i:7">:</span>
+</h2>
 
-        <div class="footer-bottom">
-            <span>© 2025 Visos teisės saugomos. Gimnastika Raseiniuose</span>
-            <span>Sekite mus socialiniuose tinkluose</span>
-        </div>
-    </footer>
+<div class="sections">
+  <a href="MegejuGrupe.html" class="section-link">
+    <div class="section">
+      <img src="MegejuFoto.jpg" alt="7-12 metų grupė">
+      <div class="section-text">
+        <h2>7-12 metų grupė</h2>
+        <p>Treniruotėse ugdome lankstumą, jėgą, šoklumą, koordinaciją, taisyklingą laikyseną ir kt.</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="MazyliuGrupe.html" class="section-link">
+    <div class="section">
+      <img src="MazyliuFoto.jpg" alt="4-6 metų grupė">
+      <div class="section-text">
+        <h2>4-6 metų grupė</h2>
+        <p>Supažindiname su menine gimnastika, ugdome lankstumą, discipliną ir kt.</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="Pazengusiuju.html" class="section-link">
+    <div class="section">
+      <img src="PazengusiuFoto.jpg" alt="Pažengusiųjų grupė">
+      <div class="section-text">
+        <h2>Pažengusiųjų grupė</h2>
+        <p>Treniruotės aptariamos individualiai su trenere pagal pasirengimą.</p>
+      </div>
+    </div>
+  </a>
+</div>
 
 </body>
-
 </html>
