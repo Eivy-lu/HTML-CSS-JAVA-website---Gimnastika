@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helovinas | Meninė gimnastika Raseiniuose</title>
+
+  <style>
+    * { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: #fff0f6;
+      padding-top: 58px;
+      overflow-x: hidden;
+    }
+
+    nav {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(#ffffff, #f5f5f5);
+      padding: 14px 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    nav a {
+      font-size: 1.5em;
+      color: #111;
+      text-decoration: none;
+      margin: 0 20px;
+      transition: color .25s ease, transform .2s ease, opacity .25s ease;
+      text-shadow: 0 1px 0 #fff;
+      display: inline-block;
+    }
+
+    nav:hover a { opacity: .85; }
+    nav a:hover { opacity: 1; color: #ff006f; transform: translateY(-1px); }
+
+    .dropdown { display: inline-block; position: relative; }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      min-width: 200px;
+      border-radius: 10px;
+      padding: 10px 0;
+      text-align: left;
+      z-index: 1100;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #111;
+    }
+
+    .dropdown-content a:hover { background: #ffedf6; color: #ff006f; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    .group-title {
+      text-align: center;
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      margin: 40px 0 30px;
+      color: #111;
+      position: relative;
+      z-index: 5;
+    }
+
+    .group-title span {
+      display: inline-block;
+      animation: glowGroup 2.8s infinite;
+      animation-delay: calc(var(--i) * 0.3s);
+    }
+
+    @keyframes glowGroup {
+      0% { color: #111; transform: scale(1); }
+      50% { color: #ff006f; transform: scale(1.1); }
+      100% { color: #111; transform: scale(1); }
+    }
+
+    .gallery-wrap {
+      padding: 30px 20px 60px;
+      width: 100%;
+      position: relative;
+      z-index: 5;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      width: 100%;
+    }
+
+    .photo {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
+      background: #fff;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease, filter .35s ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.95);
+    }
+
+    @media (max-width: 1100px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 780px) {
+      nav a { font-size: 1.2em; margin: 0 12px; }
+      .group-title { font-size: 44px; letter-spacing: 4px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 460px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+
+    .pumpkins {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .pumpkin {
+      position: absolute;
+      top: -40px;
+      color: #ff7a00;
+      font-weight: 900;
+      -webkit-text-stroke: 1px #000000;
+      text-shadow: 0 0 6px rgba(0,0,0,0.35), 0 0 14px rgba(255,140,0,0.55);
+      user-select: none;
+      animation-timing-function: linear;
+      will-change: transform;
+    }
+
+    @keyframes fallPumpkin {
+      0% { transform: translate3d(var(--x), -50px, 0) rotate(0deg); }
+      100% { transform: translate3d(calc(var(--x) + var(--drift)), 110vh, 0) rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="pumpkins" id="pumpkins"></div>
+
+<nav>
+  <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
+
+  <div class="dropdown">
+    <a href="Grupes.html">Grupės</a>
+    <div class="dropdown-content">
+      <a href="MegejuGrupe.html">7-12 metų grupė</a>
+      <a href="MazyliuGrupe.html">4-6 metų grupė</a>
+      <a href="Pazengusiuju.html">Pažengusiųjų grupė</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="Renginiai.html"><b>Renginiai</b></a>
+    <div class="dropdown-content">
+      <a href="Helovinas.html"><b>Helovinas</b></a>
+      <a href="Kaledos.html">Kalėdos</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="Renginiai.html#stovyklos">Stovyklos</a>
+    <div class="dropdown-content">
+      <a href="Renginiai.html#stovyklos">2025</a>
+    </div>
+  </div>
+
+  <a href="Kontaktai.html">Kontaktai</a>
+</nav>
+
+<h2 class="group-title">
+  <span style="--i:1">H</span>
+  <span style="--i:2">E</span>
+  <span style="--i:3">L</span>
+  <span style="--i:4">O</span>
+  <span style="--i:5">V</span>
+  <span style="--i:6">I</span>
+  <span style="--i:7">N</span>
+  <span style="--i:8">A</span>
+  <span style="--i:9">S</span>
+  <span style="--i:10"> </span>
+  <span style="--i:11">2</span>
+  <span style="--i:12">0</span>
+  <span style="--i:13">2</span>
+  <span style="--i:14">5</span>
+</h2>
+
+<section class="gallery-wrap">
+  <div class="gallery">
+    <div class="photo"><img src="helovinofoto/hel1.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel2.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel3.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel4.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel5.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel6.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel7.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel8.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel9.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel10.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel11.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel12.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel13.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel14.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel15.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel16.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel17.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel18.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel19.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel20.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel21.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel22.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel23.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel24.jpg" alt=""></div>
+
+    <div class="photo"><img src="helovinofoto/hel25.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel26.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel27.jpg" alt=""></div>
+    <div class="photo"><img src="helovinofoto/hel28.jpg" alt=""></div>
+  </div>
+</section>
+
+<script>
+  const pumpkins = document.getElementById('pumpkins');
+
+  function r(min, max) { return Math.random() * (max - min) + min; }
+
+  function makePumpkin() {
+    const p = document.createElement('div');
+    p.className = 'pumpkin';
+    p.textContent = '🎃';
+
+    const x = r(0, window.innerWidth);
+    const size = r(22, 40);
+    const duration = r(5, 10);
+    const drift = r(-90, 90);
+    const opacity = r(0.8, 1);
+
+    p.style.setProperty('--x', x + 'px');
+    p.style.setProperty('--drift', drift + 'px');
+    p.style.fontSize = size + 'px';
+    p.style.opacity = opacity;
+    p.style.animation = `fallPumpkin ${duration}s linear`;
+
+    pumpkins.appendChild(p);
+    setTimeout(() => p.remove(), (duration + 1) * 1000);
+  }
+
+  for (let i = 0; i < 45; i++) setTimeout(makePumpkin, i * 120);
+
+  const pumpkinInterval = setInterval(makePumpkin, 220);
+  setTimeout(() => clearInterval(pumpkinInterval), 10000);
+</script>
+
+</body>
+</html>
