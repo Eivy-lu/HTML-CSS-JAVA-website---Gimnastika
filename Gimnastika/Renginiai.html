@@ -6,14 +6,8 @@
   <title>Renginiai | Meninė gimnastika Raseiniuose</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -22,7 +16,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       text-align: center;
       position: fixed;
@@ -54,10 +47,7 @@
       transform: translateY(-1px);
     }
 
-    .dropdown {
-      display: inline-block;
-      position: relative;
-    }
+    .dropdown { display: inline-block; position: relative; }
 
     .dropdown-content {
       display: none;
@@ -84,11 +74,8 @@
       color: #ff006f;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+    .dropdown:hover .dropdown-content { display: block; }
 
-    /* ANIMUOTI UŽRAŠAI */
     .group-title {
       text-align: center;
       font-size: 70px;
@@ -110,7 +97,6 @@
       100% { color: #111; transform: scale(1); }
     }
 
-    /* SEKCIJOS */
     .section-wrap {
       padding: 60px 40px;
       background: transparent;
@@ -152,9 +138,7 @@
       transition: transform .5s ease;
     }
 
-    .event-card:hover img {
-      transform: scale(1.04);
-    }
+    .event-card:hover img { transform: scale(1.04); }
 
     .event-card::before {
       content: "";
@@ -165,9 +149,7 @@
       transition: opacity .35s ease;
     }
 
-    .event-card:hover::before {
-      opacity: 1;
-    }
+    .event-card:hover::before { opacity: 1; }
 
     .event-title {
       position: absolute;
@@ -224,7 +206,6 @@
   </div>
 
   <div class="dropdown">
-    <!-- SVARBU: nuoroda veda į STOVYKLOS vietą -->
     <a href="#stovyklos">Stovyklos</a>
     <div class="dropdown-content">
       <a href="#stovyklos">2025</a>
@@ -234,34 +215,48 @@
   <a href="Kontaktai.html">Kontaktai</a>
 </nav>
 
-<!-- RENGINIAI -->
 <h2 class="group-title">
-  <span style="--i:1">R</span>
-  <span style="--i:2">E</span>
-  <span style="--i:3">N</span>
-  <span style="--i:4">G</span>
-  <span style="--i:5">I</span>
-  <span style="--i:6">N</span>
-  <span style="--i:7">I</span>
-  <span style="--i:8">A</span>
-  <span style="--i:9">I</span>
+  <span style="--i:1">K</span>
+  <span style="--i:2">A</span>
+  <span style="--i:3">L</span>
+  <span style="--i:4">Ė</span>
+  <span style="--i:5">D</span>
+  <span style="--i:6">O</span>
+  <span style="--i:7">S</span>
+  <span style="--i:8">:</span>
 </h2>
 
 <section class="section-wrap">
-  <div class="cards-grid">
-    <a class="event-card" href="Helovinas.html">
-      <img src="helovinas2025.JPG" alt="Helovinas">
-      <div class="event-title">Helovinas 2025</div>
-    </a>
-
+  <div class="cards-grid single">
     <a class="event-card" href="Kaledos.html">
-      <img src="kaledos2025.JPG" alt="Kalėdos">
+      <img src="kaledos2025.JPG" alt="Kalėdos 2025">
       <div class="event-title">Kalėdos 2025</div>
     </a>
   </div>
 </section>
 
-<!-- STOVYKLOS -->
+<h2 class="group-title">
+  <span style="--i:1">H</span>
+  <span style="--i:2">E</span>
+  <span style="--i:3">L</span>
+  <span style="--i:4">O</span>
+  <span style="--i:5">V</span>
+  <span style="--i:6">I</span>
+  <span style="--i:7">N</span>
+  <span style="--i:8">A</span>
+  <span style="--i:9">S</span>
+  <span style="--i:10">:</span>
+</h2>
+
+<section class="section-wrap">
+  <div class="cards-grid single">
+    <a class="event-card" href="Helovinas.html">
+      <img src="helovinas2025.JPG" alt="Helovinas 2025">
+      <div class="event-title">Helovinas 2025</div>
+    </a>
+  </div>
+</section>
+
 <h2 class="group-title" id="stovyklos">
   <span style="--i:1">S</span>
   <span style="--i:2">T</span>
