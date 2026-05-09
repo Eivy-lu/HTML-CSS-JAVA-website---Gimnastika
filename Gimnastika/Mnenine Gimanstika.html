@@ -43,7 +43,9 @@
       display: inline-block;
     }
 
-    nav:hover a { opacity: .85; }
+    nav:hover a {
+      opacity: .85;
+    }
 
     nav a:hover {
       opacity: 1;
@@ -51,43 +53,6 @@
       transform: translateY(-1px);
     }
 
-    .header-title {
-      background-color: #fff0f6;
-      padding: 28px 0;
-      margin: 0;
-      position: relative;
-      margin-top: -4px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .animated-title {
-      text-align: center;
-      font-size: 70px;
-      font-family: "Playfair Display", serif !important;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #ff006f;
-      margin: 0;
-      letter-spacing: 2px;
-      text-shadow:
-        1px 1px 0 #222,
-        2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .animated-title span {
-      display: inline-block;
-      transition: color 0.2s ease, transform 0.2s ease;
-      animation: glow 2.8s infinite;
-      animation-delay: calc(var(--i) * 0.100s);
-    }
-
-    @keyframes glow {
-      0%   { color: #ff006f; transform: scale(1); }
-      50%  { color: #000;    transform: scale(1.1); }
-      100% { color: #ff006f; transform: scale(1); }
-    }
-
-    /* DROPDOWN */
     .dropdown {
       display: inline-block;
       position: relative;
@@ -126,6 +91,42 @@
       display: block;
     }
 
+    .header-title {
+      background-color: #fff0f6;
+      padding: 28px 0;
+      margin: 0;
+      position: relative;
+      margin-top: -4px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .animated-title {
+      text-align: center;
+      font-size: 70px;
+      font-family: "Playfair Display", serif !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ff006f;
+      margin: 0;
+      letter-spacing: 2px;
+      text-shadow:
+        1px 1px 0 #222,
+        2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .animated-title span {
+      display: inline-block;
+      transition: color 0.2s ease, transform 0.2s ease;
+      animation: glow 2.8s infinite;
+      animation-delay: calc(var(--i) * 0.100s);
+    }
+
+    @keyframes glow {
+      0% { color: #ff006f; transform: scale(1); }
+      50% { color: #000; transform: scale(1.1); }
+      100% { color: #ff006f; transform: scale(1); }
+    }
+
     img {
       width: 100%;
       margin: 0;
@@ -139,20 +140,18 @@
       color: #111;
       letter-spacing: 6px;
       margin: 40px 0 20px 0;
-      font-family: "Montserrat", sans-serif !important;
     }
 
     .group-title span {
       display: inline-block;
       animation: glowGroup 2.8s infinite;
       animation-delay: calc(var(--i) * 0.30s);
-      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     @keyframes glowGroup {
-      0%   { color: #111;    transform: scale(1); }
-      50%  { color: #ff006f; transform: scale(1.1); }
-      100% { color: #111;    transform: scale(1); }
+      0% { color: #111; transform: scale(1); }
+      50% { color: #ff006f; transform: scale(1.1); }
+      100% { color: #111; transform: scale(1); }
     }
 
     .sections {
@@ -170,23 +169,19 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+      transition: transform .3s ease, box-shadow .3s ease;
       background-color: #fff;
     }
 
     .section:hover {
       transform: scale(1.03);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      filter: brightness(1.03);
     }
 
     .section img {
       width: 100%;
       height: 300px;
       object-fit: cover;
-      background: #ddd;
-      margin: 0;
-      display: block;
     }
 
     .section-text {
@@ -210,19 +205,10 @@
       flex: 1 1 30%;
     }
 
-    .section-link .section {
-      cursor: pointer;
-    }
-
     .footer {
       background: #000;
       color: #fff;
       padding: 60px 24px 40px;
-    }
-
-    .footer a {
-      color: #fff;
-      text-decoration: none;
     }
 
     .footer-grid {
@@ -235,9 +221,7 @@
 
     .footer h3 {
       font-size: 22px;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-      margin: 0 0 18px;
+      margin-bottom: 18px;
     }
 
     .footer p {
@@ -254,26 +238,130 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
       color: #888;
       font-size: 14px;
     }
 
-    @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    /* ADVERTISEMENT */
+
+    .ad-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 10000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    @media (max-width: 640px) {
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer { padding: 44px 18px; }
-      nav a { font-size: 1.15em; margin: 0 12px; }
-      .animated-title { font-size: 44px; }
-      .group-title { font-size: 44px; }
+    .ad-box {
+      position: relative;
+      width: 560px;
+      background: rgba(255, 240, 246, 0.88);
+      border-radius: 24px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+      animation: popup .4s ease;
+    }
+
+    @keyframes popup {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .ad-box h2 {
+      color: #ff006f;
+      font-size: 42px;
+      margin: 0 0 20px;
+      line-height: 1.25;
+    }
+
+    .ad-box img {
+      width: 100%;
+      height: 760px;
+      object-fit: cover;
+      border-radius: 20px;
+      opacity: 0.92;
+    }
+
+    .ad-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: none;
+      background: #ff006f;
+      color: white;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .ad-close:hover {
+      background: #e60063;
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 700px) {
+      nav a {
+        font-size: 1.1em;
+        margin: 0 10px;
+      }
+
+      .animated-title {
+        font-size: 42px;
+      }
+
+      .group-title {
+        font-size: 42px;
+      }
+
+      .sections {
+        padding: 20px;
+      }
+
+      .section {
+        flex: 1 1 100%;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ad-box {
+        width: 94%;
+        padding: 18px;
+      }
+
+      .ad-box h2 {
+        font-size: 26px;
+      }
+
+      .ad-box img {
+        height: 620px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-box">
+    <button class="ad-close" onclick="closeAd()">×</button>
+
+    <h2>
+      Kviečiame 5–7 ir 8–14 metų mergaites į meninės gimnastikos stovyklą!
+    </h2>
+
+    <img src="stovykla_reg.png" alt="Meninės gimnastikos stovykla">
+  </div>
+</div>
 
 <nav>
   <a href="Mnenine Gimanstika.html"><b>Pagrindinis</b></a>
@@ -298,7 +386,7 @@
   <div class="dropdown">
     <a href="Renginiai.html#stovyklos">Stovyklos</a>
     <div class="dropdown-content">
-      <a href="Renginiai.html#stovyklos">2025</a>
+      <a href="Stovykla.html">2025</a>
     </div>
   </div>
 
@@ -307,18 +395,35 @@
 
 <div class="header-title">
   <h1 class="animated-title">
-    <span style="--i:1">M</span><span style="--i:2">E</span><span style="--i:3">N</span><span style="--i:4">I</span><span style="--i:5">N</span><span style="--i:6">Ė</span>
+    <span style="--i:1">M</span>
+    <span style="--i:2">E</span>
+    <span style="--i:3">N</span>
+    <span style="--i:4">I</span>
+    <span style="--i:5">N</span>
+    <span style="--i:6">Ė</span>
     <span> </span>
-    <span style="--i:7">G</span><span style="--i:8">I</span><span style="--i:9">M</span><span style="--i:10">N</span><span style="--i:11">A</span><span style="--i:12">S</span><span style="--i:13">T</span><span style="--i:14">I</span><span style="--i:15">K</span><span style="--i:16">A</span>
-    <span> </span>
-    <span style="--i:17">R</span><span style="--i:18">A</span><span style="--i:19">S</span><span style="--i:20">E</span><span style="--i:21">I</span><span style="--i:22">N</span><span style="--i:23">I</span><span style="--i:24">U</span><span style="--i:25">O</span><span style="--i:26">S</span><span style="--i:27">E</span>
+    <span style="--i:7">G</span>
+    <span style="--i:8">I</span>
+    <span style="--i:9">M</span>
+    <span style="--i:10">N</span>
+    <span style="--i:11">A</span>
+    <span style="--i:12">S</span>
+    <span style="--i:13">T</span>
+    <span style="--i:14">I</span>
+    <span style="--i:15">K</span>
+    <span style="--i:16">A</span>
   </h1>
 </div>
 
 <img src="Pagrindine foto.jpg" alt="Meninė gimnastika Raseiniuose">
 
 <h2 class="group-title">
-  <span style="--i:1">G</span><span style="--i:2">R</span><span style="--i:3">U</span><span style="--i:4">P</span><span style="--i:5">Ė</span><span style="--i:6">S</span><span style="--i:7">:</span>
+  <span style="--i:1">G</span>
+  <span style="--i:2">R</span>
+  <span style="--i:3">U</span>
+  <span style="--i:4">P</span>
+  <span style="--i:5">Ė</span>
+  <span style="--i:6">S</span>
 </h2>
 
 <div class="sections">
@@ -327,8 +432,7 @@
       <img src="MegejuFoto.jpg" alt="7-12 metų grupė">
       <div class="section-text">
         <h2>7-12 metų grupė</h2>
-        <p>Treniruotėse ugdome mergaičių lankstumą, jėgą, šoklumą, koordinaciją, taisyklingą laikyseną,
-          įgūdžius dirbant su gimnastikos įrankiais, artistiškumą bei pasitikėjimą savimi.</p>
+        <p>Treniruotėse ugdome mergaičių lankstumą, jėgą, šoklumą bei koordinaciją.</p>
       </div>
     </div>
   </a>
@@ -338,8 +442,7 @@
       <img src="MazyliuFoto.jpg" alt="4-6 metų grupė">
       <div class="section-text">
         <h2>4-6 metų grupė</h2>
-        <p>Supažindiname mergaites su menine gimnastika. Ugdome lankstumą, discipliną, jėgą, šoklumą,
-          koordinaciją, taisyklingą laikyseną bei savarankiškumą.</p>
+        <p>Supažindiname mergaites su menine gimnastika ir ugdome lankstumą bei discipliną.</p>
       </div>
     </div>
   </a>
@@ -349,8 +452,7 @@
       <img src="PazengusiuFoto.jpg" alt="Pažengusiųjų grupė">
       <div class="section-text">
         <h2>Pažengusiųjų grupė</h2>
-        <p>Šioje grupėje gali treniruotis mergaitės, turinčios visus fizinius duomenis, reikalingus meninei
-          gimnastikai. Treniruočių sąlygos aptariamos individualiai su trenere.</p>
+        <p>Treniruočių sąlygos aptariamos individualiai pagal pasirengimą.</p>
       </div>
     </div>
   </a>
@@ -359,22 +461,18 @@
 <footer class="footer">
   <div class="footer-grid">
     <div>
-      <p>Laukiame visų, norinčių patirti meninės gimnastikos džiaugsmą ir augti kartu su nuostabiausia sporto šaka!</p>
+      <p>Laukiame visų, norinčių augti kartu su menine gimnastika!</p>
     </div>
 
     <div>
       <h3>Adresas</h3>
       <p>Kalnų gatvė 15A, Raseiniai</p>
-      <p>Raseinių mokyklos-daugiafunkcinio centro "Spindulys" sporto salėje</p>
     </div>
 
     <div>
       <h3>Kontaktai</h3>
-      <p class="muted">+370 000 00000</p>
-      <div class="social">
-        <a href="https://www.facebook.com/groups/1255603382382791/" aria-label="Facebook">FB</a>
-        <p>Gimnastika Raseiniuose</p>
-      </div>
+      <p>+370 000 00000</p>
+      <p>Gimnastika Raseiniuose</p>
     </div>
 
     <div>
@@ -384,10 +482,20 @@
   </div>
 
   <div class="footer-bottom">
-    <span>© 2025 Visos teisės saugomos. Gimnastika Raseiniuose</span>
-    <span>Sekite mus socialiniuose tinkluose</span>
+    <span>© 2025 Visos teisės saugomos.</span>
+    <span>Gimnastika Raseiniuose</span>
   </div>
 </footer>
+
+<script>
+  function closeAd() {
+    document.getElementById("adOverlay").style.display = "none";
+  }
+
+  setTimeout(() => {
+    document.getElementById("adOverlay").style.display = "flex";
+  }, 1500);
+</script>
 
 </body>
 </html>
