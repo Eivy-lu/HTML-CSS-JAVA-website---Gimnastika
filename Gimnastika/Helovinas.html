@@ -9,6 +9,8 @@
 
 <body>
 
+<div class="pumpkins" id="pumpkins"></div>
+
 <div id="site-nav"></div>
 
 <h2 class="group-title">
@@ -69,5 +71,42 @@
 </section>
 
 <script src="nav.js"></script>
+
+<script>
+  const pumpkins = document.getElementById('pumpkins');
+
+  function randomPumpkin(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function makePumpkin() {
+    const pumpkin = document.createElement('div');
+    pumpkin.className = 'pumpkin';
+    pumpkin.textContent = '🎃';
+
+    const x = randomPumpkin(0, window.innerWidth);
+    const size = randomPumpkin(22, 40);
+    const duration = randomPumpkin(5, 10);
+    const drift = randomPumpkin(-90, 90);
+    const opacity = randomPumpkin(0.8, 1);
+
+    pumpkin.style.setProperty('--x', x + 'px');
+    pumpkin.style.setProperty('--drift', drift + 'px');
+    pumpkin.style.fontSize = size + 'px';
+    pumpkin.style.opacity = opacity;
+    pumpkin.style.animation = `fallPumpkin ${duration}s linear`;
+
+    pumpkins.appendChild(pumpkin);
+    setTimeout(() => pumpkin.remove(), (duration + 1) * 1000);
+  }
+
+  for (let i = 0; i < 45; i++) {
+    setTimeout(makePumpkin, i * 120);
+  }
+
+  const pumpkinInterval = setInterval(makePumpkin, 220);
+  setTimeout(() => clearInterval(pumpkinInterval), 10000);
+</script>
+
 </body>
 </html>
